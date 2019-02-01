@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import beans.DeliveryMethodDataBeans;
 import beans.ItemDataBeans;
 
 /**
@@ -60,10 +61,11 @@ public class EcHelper {
 	 * @param items
 	 * @return total
 	 */
-	public static int getTotalItemPrice(ArrayList<ItemDataBeans> items) {
+	public static int getTotalItemPrice(ArrayList<ItemDataBeans> items, DeliveryMethodDataBeans dbm) {
 		int total = 0;
 		for (ItemDataBeans item : items) {
 			total += item.getPrice();
+			total += dbm.getPrice();
 		}
 		return total;
 	}

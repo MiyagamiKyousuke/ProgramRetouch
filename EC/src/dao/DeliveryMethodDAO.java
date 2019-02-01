@@ -78,6 +78,10 @@ public class DeliveryMethodDAO {
 				dmdb.setPrice(rs.getInt("price"));
 			}
 
+			System.out.println(dmdb.getId());
+			System.out.println(dmdb.getName());
+			System.out.println(dmdb.getPrice());
+
 			System.out.println("searching DeliveryMethodDataBeans by DeliveryMethodID has been completed");
 
 			return dmdb;
