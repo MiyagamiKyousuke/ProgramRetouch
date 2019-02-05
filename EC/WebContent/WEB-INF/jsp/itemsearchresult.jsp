@@ -44,10 +44,10 @@
 						</div>
 					</div>
 				</c:forEach>
-				<c:if test="${(status.index + 1) % 4 == 0}">
+				<%--<c:if test="${(status.index + 1) % 4 == 0}">--%>
 			</div>
 			<div class="row">
-				</c:if>
+				<%--</c:if>--%>
 
 			</div>
 		</div>

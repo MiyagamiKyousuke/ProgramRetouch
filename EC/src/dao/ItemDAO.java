@@ -16,8 +16,6 @@ import beans.ItemDataBeans;
  */
 public class ItemDAO {
 
-
-
 	/**
 	 * ランダムで引数指定分のItemDataBeansを取得
 	 * @param limit 取得したいかず
@@ -79,7 +77,7 @@ public class ItemDAO {
 			if (rs.next()) {
 				item.setId(rs.getInt("id"));
 				item.setName(rs.getString("name"));
-				item.setDetail(rs.getString("name"));
+				item.setDetail(rs.getString("detail"));
 				item.setPrice(rs.getInt("price"));
 				item.setFileName(rs.getString("file_name"));
 			}
@@ -105,7 +103,8 @@ public class ItemDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public static ArrayList<ItemDataBeans> getItemsByItemName(String searchWord, int pageNum, int pageMaxItemCount) throws SQLException {
+	public static ArrayList<ItemDataBeans> getItemsByItemName(String searchWord, int pageNum, int pageMaxItemCount)
+			throws SQLException {
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
@@ -119,8 +118,8 @@ public class ItemDAO {
 				st.setInt(2, pageMaxItemCount);
 			} else {
 				// 商品名検索
-				st = con.prepareStatement("SELECT * FROM m_item WHERE name = ?  ORDER BY id ASC LIMIT ?,? ");
-				st.setString(1,searchWord);
+				st = con.prepareStatement("SELECT * FROM m_item WHERE name LIKE ? ORDER BY id ASC LIMIT ?,? ");
+				st.setString(1, "%" + searchWord + "%");
 				st.setInt(2, startiItemNum);
 				st.setInt(3, pageMaxItemCount);
 			}
@@ -148,6 +147,7 @@ public class ItemDAO {
 			}
 		}
 	}
+
 	/**
 	 * 商品総数を取得
 	 *
