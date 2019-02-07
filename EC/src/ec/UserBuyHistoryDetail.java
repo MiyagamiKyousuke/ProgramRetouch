@@ -19,7 +19,7 @@ public class UserBuyHistoryDetail extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+		String id = request.getParameter("buy_id");
 
 		request.getRequestDispatcher(EcHelper.USER_BUY_HISTORY_DETAIL_PAGE).forward(request, response);
 
