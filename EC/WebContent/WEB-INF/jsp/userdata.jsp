@@ -70,7 +70,7 @@
 								<c:forEach var="uib" items="${uibList}">
 									<tr>
 										<td class="center"><a
-											href="UserBuyHistoryDetail?buy_id=?"
+											href="UserBuyHistoryDetail?buy_id=${uib.id}"
 											class="btn-floating btn waves-effect waves-light "> <i
 												class="material-icons">details</i></a></td>
 										<td class="center">${uib.formatDate}</td>
