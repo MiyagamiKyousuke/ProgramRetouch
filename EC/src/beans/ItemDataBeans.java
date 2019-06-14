@@ -13,7 +13,9 @@ public class ItemDataBeans implements Serializable {
 	private String detail;
 	private int price;
 	private String fileName;
-
+	private int countNum;
+	//商品検索数
+	private int itemCount;
 
 	public int getId() {
 		return id;
@@ -44,6 +46,18 @@ public class ItemDataBeans implements Serializable {
 	}
 	public void setFileName(String filename) {
 		this.fileName = filename;
+	}
+	public int getCountNum() {
+		return countNum;
+	}
+	public void setCountNum(int countNum) {
+		this.countNum = countNum;
+	}
+	public int getItemCount() {
+		return itemCount;
+	}
+	public void setItemCount(int itemCount) {
+		this.itemCount = itemCount;
 	}
 
 
